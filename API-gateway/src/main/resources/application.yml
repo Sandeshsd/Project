@@ -5,7 +5,7 @@ spring:
   application:
     name: API-GATEWAY
   cloud:
-   gateway:
+    gateway:
      routes:
       - id: STUDENT-SERVICES
         uri: lb://STUDENT-SERVICES
@@ -32,8 +32,8 @@ spring:
         predicates:
          - path=/subjects/**
          
-      - id: ADDRESS-SERVICES
-        uri: lb://ADDRESS-SERVICES
+      - id: ADRRESS-SERVICES
+        uri: lb://ADRRESS-SERVICES
         predicates:
          - path=/studentaddress/**,/mentoraddress/**
      

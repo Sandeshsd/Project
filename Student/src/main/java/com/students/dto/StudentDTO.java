@@ -6,12 +6,16 @@ import java.util.List;
 import com.students.entity.Address;
 import com.students.entity.Courses;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class StudentDTO {
 
