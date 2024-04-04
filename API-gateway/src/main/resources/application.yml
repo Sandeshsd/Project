@@ -1,0 +1,51 @@
+server:
+ port: 8080
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+   gateway:
+     routes:
+      - id: STUDENT-SERVICES
+        uri: lb://STUDENT-SERVICES
+        predicates:
+         - path=/students/**
+         
+      - id: MENTOR-SERVICES
+        uri: lb://MENTOR-SERVICES
+        predicates:
+         - path=/mentors/**
+         
+      - id: COURSE-SERVICES
+        uri: lb://COURSE-SERVICES
+        predicates:
+         - path=/courses/**
+         
+      - id: RATING-SERVICES
+        uri: lb://RATING-SERVICES
+        predicates:
+         - path=/ratings/**
+         
+      - id: SUBJECT-SERVICES
+        uri: lb://SUBJECT-SERVICES
+        predicates:
+         - path=/subjects/**
+         
+      - id: ADDRESS-SERVICES
+        uri: lb://ADDRESS-SERVICES
+        predicates:
+         - path=/studentaddress/**,/mentoraddress/**
+     
+     
+    
+
+eureka:
+  instance:
+    prefer-ip-address: true 
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaulZone: http://localhost:8761/eureka
+      
