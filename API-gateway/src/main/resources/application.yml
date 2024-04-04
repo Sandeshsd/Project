@@ -4,9 +4,15 @@ server:
 spring:
   application:
     name: API-GATEWAY
+    
+    
+  main:
+    allow-bean-definition-overriding: true
+    
+    
   cloud:
     gateway:
-     routes:
+      routes:
       - id: STUDENT-SERVICES
         uri: lb://STUDENT-SERVICES
         predicates:
@@ -37,8 +43,6 @@ spring:
         predicates:
          - path=/studentaddress/**,/mentoraddress/**
      
-     
-    
 
 eureka:
   instance:
@@ -49,3 +53,12 @@ eureka:
     service-url:
       defaulZone: http://localhost:8761/eureka
       
+      
+      
+okta:
+  oauth2:
+    issuer: https://dev-37477080.okta.com/oauth2/default
+    audience: api://default
+    client-id: 0oag82pwz0UN7Hyfs5d7
+    client-secret: 4h3-VYf1LeHgTFo7YLlH1arkuXzbOGqXDVxxoRmif1kjCulm-AIEZrUPzxZRXzK-
+    scopes: openid, profile, email, offline_access
